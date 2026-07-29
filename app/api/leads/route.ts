@@ -79,7 +79,13 @@ export async function POST(request: NextRequest) {
       consentPolicyVersion: "2026-07-29",
     });
     return NextResponse.json({ ok: true, receipt }, { status: 201 });
-  } catch {
+  } catch (error) {
+    // Keep visitor-facing errors generic, but retain the provider's safe error
+    // message in server logs so production delivery issues can be diagnosed.
+    console.error("Lead delivery failed", {
+      provider: "resend",
+      message: error instanceof Error ? error.message : "Unknown provider error",
+    });
     return NextResponse.json({ ok: false, errors: { form: "Your request could not be saved. Please call or try again." } }, { status: 502 });
   }
 }
