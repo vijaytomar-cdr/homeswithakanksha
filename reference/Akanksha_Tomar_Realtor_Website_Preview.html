@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Akanksha Tomar | Arizona REALTOR®</title>
+<meta name="description" content="Akanksha Tomar, REALTOR® with eXp Realty | Kumler Group, helping buyers and sellers across Greater Phoenix, Arizona." />
+<style>
+:root{
+  --navy:#0b2340;
+  --navy2:#07182b;
+  --gold:#c99a45;
+  --light:#f5f6f8;
+  --text:#132033;
+  --muted:#657181;
+  --white:#fff;
+  --border:#e5e9ef;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:#fff;line-height:1.55}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1180px,92%);margin:auto}
+.topbar{background:var(--navy2);color:#fff;font-size:13px}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;padding:8px 0;gap:16px}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:30}
+.nav{display:flex;justify-content:space-between;align-items:center;min-height:76px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.04em}
+.brand-mark{width:44px;height:44px;border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-family:Georgia,serif;font-size:25px}
+.brand small{display:block;font-weight:500;color:var(--muted);font-size:10px;letter-spacing:.18em}
+.navlinks{display:flex;gap:24px;font-size:14px;align-items:center}
+.navlinks a:hover{color:var(--gold)}
+.navcta{background:var(--gold);color:#fff;padding:12px 17px;font-weight:700;font-size:13px}
+.menu-btn{display:none;border:0;background:none;font-size:26px}
+.hero{min-height:620px;background:
+linear-gradient(90deg,rgba(5,18,34,.94) 0%,rgba(5,18,34,.82) 45%,rgba(5,18,34,.34) 100%),
+radial-gradient(circle at 76% 48%,#bda274 0 8%,transparent 9%),
+linear-gradient(135deg,#263e5a,#c89c61);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:7%;bottom:0;width:34%;height:82%;background:linear-gradient(180deg,#d9b28f,#6d432f);border-radius:180px 180px 0 0;opacity:.9;box-shadow:0 0 0 10px rgba(255,255,255,.04)}
+.hero .container{position:relative;z-index:2;display:flex;align-items:center;min-height:620px}
+.hero-copy{max-width:690px;padding:70px 0}
+.eyebrow{color:#e9b959;text-transform:uppercase;letter-spacing:.13em;font-size:12px;font-weight:800}
+h1{font-size:clamp(43px,5vw,72px);line-height:1.03;margin:14px 0 20px;letter-spacing:-.035em}
+.hero p{font-size:19px;max-width:680px;color:#eef2f7}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{padding:14px 20px;border:1px solid transparent;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-outline{border-color:rgba(255,255,255,.65);color:#fff}
+.btn-navy{background:var(--navy);color:#fff}
+.stats{background:var(--navy);color:#fff}
+.stats .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:24px;border-right:1px solid rgba(255,255,255,.15)}
+.stat:last-child{border-right:0}
+.stat strong{display:block;font-size:24px;color:#e7b55b}
+.section{padding:84px 0}
+.section.alt{background:var(--light)}
+.section-title{text-align:center;max-width:760px;margin:0 auto 42px}
+.section-title h2{font-size:38px;margin:6px 0 12px;letter-spacing:-.025em}
+.section-title p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{border:1px solid var(--border);background:#fff;padding:28px;transition:.2s;min-height:220px}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(10,32,56,.08)}
+.card .icon{font-size:28px;color:var(--gold)}
+.card h3{margin:14px 0 8px}
+.card p{color:var(--muted);font-size:14px}
+.link{color:var(--gold);font-weight:800;font-size:13px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.photo-placeholder{min-height:480px;background:linear-gradient(135deg,#0d2b4d,#d6ad6f);position:relative;overflow:hidden}
+.photo-placeholder:after{content:"Professional portrait / lifestyle photography";position:absolute;inset:auto 24px 24px;color:#fff;font-weight:700;background:rgba(0,0,0,.28);padding:12px 14px;width:max-content;max-width:80%}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.check{background:var(--light);padding:12px 14px;font-size:14px}
+.community-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.community{height:250px;position:relative;overflow:hidden;background:linear-gradient(135deg,#98b6ca,#d8b370)}
+.community:nth-child(2n){background:linear-gradient(135deg,#7192a4,#9db06f)}
+.community:nth-child(3n){background:linear-gradient(135deg,#526f82,#d5a36b)}
+.community span{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff;padding:60px 20px 18px;font-size:22px;font-weight:800}
+.searchbox{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;background:#fff;border:1px solid var(--border);padding:16px;box-shadow:0 14px 30px rgba(13,38,64,.08)}
+.searchbox input,.searchbox select,.form input,.form textarea{width:100%;padding:14px;border:1px solid #d9dee6;background:#fff;font:inherit}
+.listings{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.listing{border:1px solid var(--border);background:#fff}
+.listing-img{height:200px;background:linear-gradient(135deg,#d7c29e,#8098a6)}
+.listing-body{padding:18px}
+.price{font-size:22px;font-weight:900}
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:42px;background:#fff;border:1px solid var(--border);padding:36px}
+.form{display:grid;gap:12px}
+.form textarea{min-height:130px}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.post{border:1px solid var(--border);background:#fff}
+.post-img{height:170px;background:linear-gradient(135deg,#223d59,#d4a65e)}
+.post-body{padding:20px}
+.testimonial{max-width:850px;margin:auto;text-align:center;background:#fff;border:1px solid var(--border);padding:42px;font-size:20px}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px}
+.contact-card{background:var(--navy);color:#fff;padding:34px}
+.contact-card a{display:block;margin:10px 0;color:#fff}
+footer{background:#06172b;color:#fff;padding:44px 0 94px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px}
+.footer-grid p,.footer-grid a{color:#b7c2d0;font-size:14px}
+.sticky-mobile{position:fixed;left:0;right:0;bottom:0;background:#07182b;color:#fff;display:none;z-index:50}
+.sticky-mobile a{flex:1;text-align:center;padding:13px 4px;font-size:12px;border-right:1px solid rgba(255,255,255,.12)}
+.anchor{scroll-margin-top:90px}
+@media(max-width:980px){
+ .navlinks{display:none}
+ .menu-btn{display:block}
+ .hero:after{opacity:.42;width:50%;right:-10%}
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .community-grid,.listings,.blog-grid{grid-template-columns:repeat(2,1fr)}
+ .split,.form-wrap,.contact-grid{grid-template-columns:1fr}
+ .searchbox{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+ .topbar .container{justify-content:center}.topbar .social{display:none}
+ .nav{min-height:65px}.brand-mark{width:38px;height:38px}.brand div{font-size:13px}
+ .hero,.hero .container{min-height:610px}.hero-copy{padding:58px 0}.hero p{font-size:16px}
+ .actions{display:grid}.btn{width:100%}
+ .stats .container{grid-template-columns:repeat(2,1fr)}.stat{padding:18px}
+ .section{padding:64px 0}.section-title h2{font-size:31px}
+ .cards,.community-grid,.listings,.blog-grid,.checks{grid-template-columns:1fr}
+ .searchbox{grid-template-columns:1fr}
+ .form-wrap{padding:22px}
+ .footer-grid{grid-template-columns:1fr}
+ .sticky-mobile{display:flex}
+ footer{padding-bottom:110px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="container">
+    <div>📞 (602) 123-4567 &nbsp;&nbsp; ✉ akanksha@yourdomain.com</div>
+    <div class="social">Facebook &nbsp; Instagram &nbsp; Google</div>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <div class="brand-mark">AT</div>
+      <div>AKANKSHA TOMAR<small>REALTOR® · eXp Realty | Kumler Group</small></div>
+    </a>
+    <nav class="navlinks">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#buy">Buy</a><a href="#sell">Sell</a>
+      <a href="#communities">Communities</a><a href="#search">Search Homes</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="navcta" href="#valuation">HOME VALUATION</a>
+    <button class="menu-btn">☰</button>
+  </div>
+</header>
+
+<section id="home" class="hero anchor">
+  <div class="container">
+    <div class="hero-copy">
+      <div class="eyebrow">Greater Phoenix, Arizona Real Estate</div>
+      <h1>Helping You Find the Right Home in Arizona</h1>
+      <p>Whether you're buying your first home, upgrading, investing, or relocating, I'm here to guide you every step of the way.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#search">⌕ Search Homes</a>
+        <a class="btn btn-outline" href="#valuation">Home Valuation</a>
+        <a class="btn btn-outline" href="#contact">Schedule Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container">
+    <div class="stat"><strong>Greater Phoenix</strong>Local market focus</div>
+    <div class="stat"><strong>Buyer + Seller</strong>Full-service guidance</div>
+    <div class="stat"><strong>Responsive</strong>Clear communication</div>
+    <div class="stat"><strong>Relationship First</strong>Never pushy</div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title"><div class="eyebrow">How can I help you?</div><h2>Professional Real Estate Services</h2><p>Built around a simple goal: make your next move easier, clearer, and less stressful.</p></div>
+    <div class="cards">
+      <div class="card"><div class="icon">⌂</div><h3>Buy a Home</h3><p>Personalized home search, financing guidance, tours, negotiation, inspections, and closing support.</p><a class="link" href="#buy">Explore buying →</a></div>
+      <div class="card"><div class="icon">◇</div><h3>Sell Your Home</h3><p>Pricing strategy, professional marketing, photography, social exposure, open houses, and negotiation.</p><a class="link" href="#sell">Explore selling →</a></div>
+      <div class="card"><div class="icon">⌖</div><h3>Explore Communities</h3><p>Compare neighborhoods, lifestyle, schools, parks, shopping, restaurants, and housing options.</p><a class="link" href="#communities">Browse communities →</a></div>
+      <div class="card"><div class="icon">↗</div><h3>Home Valuation</h3><p>Start with a complimentary estimate and a personalized conversation about your selling options.</p><a class="link" href="#valuation">Get your valuation →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section alt anchor">
+ <div class="container split">
+   <div class="photo-placeholder"></div>
+   <div>
+     <div class="eyebrow">Meet Akanksha</div>
+     <h2>Your Arizona Real Estate Guide</h2>
+     <p>Akanksha Tomar is a REALTOR® with eXp Realty | Kumler Group serving buyers and sellers throughout Greater Phoenix. Her approach is personal, patient, responsive, and grounded in helping clients make confident decisions without pressure.</p>
+     <p>Whether you are purchasing your first home, relocating to Arizona, investing, downsizing, or preparing to sell, Akanksha provides thoughtful guidance from the first conversation through closing.</p>
+     <div class="checks">
+       <div class="check">✓ First-time buyers</div><div class="check">✓ Relocation</div>
+       <div class="check">✓ Investors</div><div class="check">✓ Retirees & snowbirds</div>
+       <div class="check">✓ New construction</div><div class="check">✓ Sellers</div>
+     </div>
+     <a class="btn btn-navy" href="#contact">Schedule a Consultation</a>
+   </div>
+ </div>
+</section>
+
+<section id="buy" class="section anchor">
+ <div class="container">
+  <div class="section-title"><div class="eyebrow">For Buyers</div><h2>A Clear Path to Your Next Home</h2><p>From financing and property search to offers, inspections and closing, every step is coordinated around your goals.</p></div>
+  <div class="cards">
+   <div class="card"><h3>1. Consultation</h3><p>Define budget, timing, priorities, preferred areas, lifestyle and financing strategy.</p></div>
+   <div class="card"><h3>2. Smart Search</h3><p>MLS-driven home discovery plus new construction and neighborhood recommendations.</p></div>
+   <div class="card"><h3>3. Offer Strategy</h3><p>Pricing analysis, negotiation, contingencies and terms designed to protect your interests.</p></div>
+   <div class="card"><h3>4. Closing</h3><p>Inspection, appraisal, lender coordination, final walkthrough and closing support.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="sell" class="section alt anchor">
+ <div class="container split">
+  <div>
+   <div class="eyebrow">For Sellers</div>
+   <h2>Market Your Home to Stand Out</h2>
+   <p>Selling successfully is more than placing a home on the MLS. The plan combines positioning, presentation, pricing and promotion to reach the right buyers.</p>
+   <div class="checks">
+    <div class="check">✓ Pricing strategy</div><div class="check">✓ Professional photography</div>
+    <div class="check">✓ Online marketing</div><div class="check">✓ Social media exposure</div>
+    <div class="check">✓ Open houses</div><div class="check">✓ Offer negotiation</div>
+   </div>
+   <a class="btn btn-gold" href="#valuation">Request Home Valuation</a>
+  </div>
+  <div class="photo-placeholder"></div>
+ </div>
+</section>
+
+<section id="communities" class="section anchor">
+ <div class="container">
+  <div class="section-title"><div class="eyebrow">Explore Greater Phoenix</div><h2>Find the Right Community for Your Lifestyle</h2><p>Each community page can become an SEO landing page with market data, homes for sale, schools, neighborhoods and local guides.</p></div>
+  <div class="community-grid">
+   <div class="community"><span>Peoria</span></div><div class="community"><span>Surprise</span></div><div class="community"><span>Glendale</span></div>
+   <div class="community"><span>Sun City</span></div><div class="community"><span>Scottsdale</span></div><div class="community"><span>Goodyear</span></div>
+   <div class="community"><span>Buckeye</span></div><div class="community"><span>Avondale</span></div><div class="community"><span>Sun City West</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="search" class="section alt anchor">
+ <div class="container">
+  <div class="section-title"><div class="eyebrow">MLS Search Experience</div><h2>Search Homes Across Greater Phoenix</h2><p>This preview uses placeholders. Production can connect to an approved IDX/MLS provider.</p></div>
+  <div class="searchbox">
+   <select><option>City</option><option>Peoria</option><option>Surprise</option><option>Scottsdale</option></select>
+   <input placeholder="ZIP Code" />
+   <select><option>Min Price</option><option>$300,000</option><option>$500,000</option><option>$750,000</option></select>
+   <select><option>Beds</option><option>2+</option><option>3+</option><option>4+</option></select>
+   <button class="btn btn-navy">Search MLS</button>
+  </div>
+  <div class="listings">
+   <div class="listing"><div class="listing-img"></div><div class="listing-body"><div class="price">$525,000</div><b>Peoria, AZ</b><p>4 beds · 3 baths · 2,350 sq ft</p></div></div>
+   <div class="listing"><div class="listing-img"></div><div class="listing-body"><div class="price">$649,000</div><b>Surprise, AZ</b><p>4 beds · 3 baths · 2,780 sq ft</p></div></div>
+   <div class="listing"><div class="listing-img"></div><div class="listing-body"><div class="price">$895,000</div><b>Scottsdale, AZ</b><p>3 beds · 3 baths · 2,520 sq ft</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="valuation" class="section anchor">
+ <div class="container">
+  <div class="form-wrap">
+   <div>
+    <div class="eyebrow">Seller Lead Generation</div>
+    <h2>What Could Your Home Sell For?</h2>
+    <p>Receive a complimentary home value review and local market perspective. This form should feed directly into the CRM and marketing automation stack.</p>
+    <p><b>No pressure. No obligation.</b> Just useful information to help you understand your options.</p>
+   </div>
+   <form class="form" onsubmit="event.preventDefault();alert('Preview only — lead form submitted.');">
+    <input placeholder="Name" required>
+    <input placeholder="Phone">
+    <input type="email" placeholder="Email" required>
+    <input placeholder="Property Address" required>
+    <button class="btn btn-gold">Request My Home Valuation</button>
+   </form>
+  </div>
+ </div>
+</section>
+
+<section id="blog" class="section alt anchor">
+ <div class="container">
+  <div class="section-title"><div class="eyebrow">Arizona Real Estate Insights</div><h2>Helpful Guides That Also Build SEO Authority</h2></div>
+  <div class="blog-grid">
+   <article class="post"><div class="post-img"></div><div class="post-body"><small>BUYING</small><h3>Buying Your First Home in Arizona</h3><p>A step-by-step guide to financing, inspections, offers and closing.</p><a class="link">Read guide →</a></div></article>
+   <article class="post"><div class="post-img"></div><div class="post-body"><small>RELOCATION</small><h3>Moving to Phoenix: What to Know</h3><p>Communities, commute, lifestyle, housing and practical relocation advice.</p><a class="link">Read guide →</a></div></article>
+   <article class="post"><div class="post-img"></div><div class="post-body"><small>COMMUNITIES</small><h3>Best Neighborhoods in Surprise, AZ</h3><p>A local guide designed to rank for high-intent community searches.</p><a class="link">Read guide →</a></div></article>
+  </div>
+ </div>
+</section>
+
+<section id="testimonials" class="section anchor">
+ <div class="container">
+  <div class="section-title"><div class="eyebrow">Client Experience</div><h2>Trust Built Through Service</h2></div>
+  <div class="testimonial">“Akanksha made the entire process easy to understand and never made us feel pressured. She was responsive, patient and truly listened to what we wanted.”<br><br><b>— Sample Client Review</b></div>
+ </div>
+</section>
+
+<section id="contact" class="section alt anchor">
+ <div class="container">
+  <div class="section-title"><div class="eyebrow">Let’s Talk</div><h2>Ready to Make Your Next Move?</h2><p>Call, text, email or schedule a consultation.</p></div>
+  <div class="contact-grid">
+   <div class="contact-card">
+    <h3>Akanksha Tomar, REALTOR®</h3>
+    <p>eXp Realty | Kumler Group</p>
+    <a>📞 (602) 123-4567</a>
+    <a>✉ akanksha@yourdomain.com</a>
+    <a>◎ Instagram</a>
+    <a>f Facebook</a>
+    <a>⌖ Google Business Profile</a>
+    <p style="margin-top:26px;color:#c3ceda">Serving Phoenix, Peoria, Surprise, Glendale, Sun City, Sun City West, El Mirage, Goodyear, Buckeye, Avondale, Scottsdale and surrounding Greater Phoenix communities.</p>
+   </div>
+   <form class="form" onsubmit="event.preventDefault();alert('Preview only — contact form submitted.');">
+    <input placeholder="Name" required><input placeholder="Phone"><input type="email" placeholder="Email" required>
+    <select><option>I’m interested in...</option><option>Buying a home</option><option>Selling a home</option><option>Relocating to Arizona</option><option>Investment property</option><option>New construction</option></select>
+    <textarea placeholder="How can Akanksha help?"></textarea>
+    <button class="btn btn-gold">Send Message</button>
+   </form>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="container footer-grid">
+  <div><div class="brand" style="color:#fff"><div class="brand-mark">AT</div><div>AKANKSHA TOMAR<small>REALTOR® · eXp Realty | Kumler Group</small></div></div><p>Professional, approachable real estate guidance throughout Greater Phoenix, Arizona.</p></div>
+  <div><h4>Quick Links</h4><p><a href="#buy">Buy</a></p><p><a href="#sell">Sell</a></p><p><a href="#communities">Communities</a></p><p><a href="#valuation">Home Valuation</a></p></div>
+  <div><h4>Compliance / Production</h4><p>Fair Housing logo</p><p>REALTOR® / brokerage disclosures</p><p>Privacy Policy</p><p>Accessibility</p><p>IDX disclaimers</p></div>
+ </div>
+</footer>
+
+<div class="sticky-mobile">
+ <a href="tel:+16021234567">☎ Call</a><a href="sms:+16021234567">💬 Text</a><a href="#search">⌕ Search</a><a href="#valuation">⌂ Value</a>
+</div>
+</body>
+</html>
