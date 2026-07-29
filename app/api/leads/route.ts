@@ -7,6 +7,26 @@ const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT = 5;
 const attempts = new Map<string, number[]>();
 
+function requestCameFromThisSite(request: NextRequest) {
+  const origin = request.headers.get("origin");
+  if (!origin) return true;
+
+  try {
+    const originHost = new URL(origin).host.toLowerCase();
+    const publicHosts = [
+      request.headers.get("x-forwarded-host")?.split(",")[0]?.trim(),
+      request.headers.get("host"),
+      request.nextUrl.host,
+    ]
+      .filter((host): host is string => Boolean(host))
+      .map((host) => host.toLowerCase());
+
+    return publicHosts.includes(originHost);
+  } catch {
+    return false;
+  }
+}
+
 function rateLimited(request: NextRequest) {
   // Instance-local protection. Add an edge-backed limiter after the production
   // host is selected so limits can be shared across server instances.
@@ -26,8 +46,9 @@ export async function POST(request: NextRequest) {
   const contentLength = Number(request.headers.get("content-length") ?? "0");
   if (contentLength > MAX_BODY_BYTES) return NextResponse.json({ ok: false, errors: { form: "Request is too large." } }, { status: 413 });
 
-  const origin = request.headers.get("origin");
-  if (origin && new URL(origin).host !== request.nextUrl.host) {
+  // Hosting proxies can rewrite request.nextUrl while preserving the visitor-facing
+  // domain in forwarded headers. Compare the browser origin with those public hosts.
+  if (!requestCameFromThisSite(request)) {
     return NextResponse.json({ ok: false, errors: { form: "Invalid request origin." } }, { status: 403 });
   }
 
