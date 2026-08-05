@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight } from "@/components/ui/icons";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function ServiceHero({
   eyebrow,
@@ -25,7 +25,7 @@ export function ServiceHero({
           <p className="eyebrow eyebrow-light">{eyebrow}</p>
           <h1>{title}<br /><em>{accent}</em></h1>
           <p>{description}</p>
-          <Link className="button button-gold" href={href}>{cta}<ArrowRight /></Link>
+          <TrackedLink className="button button-gold" href={href} event={{ name: "cta_click", params: { cta_name: cta, cta_location: `${marker.toLowerCase()}-hero`, destination: href } }}>{cta}<ArrowRight /></TrackedLink>
         </div>
         <div className="interior-art" aria-hidden="true">
           <span>{marker}</span>
@@ -36,4 +36,3 @@ export function ServiceHero({
     </section>
   );
 }
-

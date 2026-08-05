@@ -1,5 +1,7 @@
 import type { Community } from "@/data/communities";
 
+export const communityReviewedDate = "2026-08-04";
+
 export type CommunityDetail = Community & {
   tagline: string;
   introduction: string;
@@ -12,6 +14,7 @@ export type CommunityDetail = Community & {
   newConstruction: string;
   location: string;
   faqs: { question: string; answer: string }[];
+  officialSources?: { label: string; url: string }[];
 };
 
 export const communityDetails: CommunityDetail[] = [
@@ -160,6 +163,49 @@ export const communityDetails: CommunityDetail[] = [
     ],
   },
   {
+    name: "Paradise Valley", slug: "paradise-valley", eyebrow: "Central Valley", imagePosition: "50% 52%",
+    tagline: "Mountain views, low-density residential streets, and a central Valley setting.",
+    introduction: "Paradise Valley is a residential town between Phoenix and Scottsdale, set around Camelback and Mummy mountains. Searches here are highly property-specific because lot setting, views, renovation history, access, and nearby resort activity can differ from one address to the next.",
+    lifestyle: "The town is known for quiet residential streets, desert and mountain scenery, resorts, and close access to dining, shopping, recreation, and cultural destinations in Scottsdale and Phoenix. Daily routines often extend beyond the town boundary.",
+    housing: "Housing is predominantly detached and includes established custom homes, extensively renovated properties, contemporary builds, and large estates. Architecture, topography, construction era, and condition vary widely, so inspections and document review should be tailored to the property.",
+    highlights: ["Camelback Mountain vicinity", "Mummy Mountain area", "Scottsdale and Phoenix connections"],
+    parks: "Paradise Valley's setting is framed by Camelback and Mummy mountains. Public trail access and major recreation facilities are generally found in adjacent Phoenix and Scottsdale, so verify trailhead access, parking rules, and the route from a specific property.",
+    shopping: "Most everyday and destination shopping is located in nearby Scottsdale and Phoenix. Compare the exact drive to preferred groceries, services, and retail rather than relying on the town name alone.",
+    restaurants: "Resort dining is part of the local landscape, with a much broader selection available in nearby Scottsdale, Arcadia, Biltmore, and central Phoenix.",
+    newConstruction: "New construction is commonly property-specific, including custom homes and redevelopment of existing sites. Review plans, permits, site conditions, construction timelines, and surrounding projects carefully.",
+    location: "Paradise Valley sits between central Phoenix and Scottsdale. Mountain terrain, limited through routes, school-hour traffic, events, and the exact destination can materially affect travel time.",
+    faqs: [
+      { question: "What types of homes are found in Paradise Valley?", answer: "The town primarily offers detached custom homes and estates spanning multiple construction eras, renovation levels, architectural styles, and lot settings." },
+      { question: "Does mountain location affect a home search?", answer: "It can. Topography, views, drainage, driveway access, hillside requirements, and proximity to trail traffic should be evaluated for the specific property." },
+      { question: "Is new construction available?", answer: "Custom construction and redevelopment occur, but availability is property-specific. Verify permits, plans, timing, builder terms, and site conditions before making decisions." },
+    ],
+    officialSources: [
+      { label: "Town of Paradise Valley General Plan", url: "https://www.paradisevalleyaz.gov/DocumentCenter/View/9608/2022-General-Plan" },
+    ],
+  },
+  {
+    name: "Tempe", slug: "tempe", eyebrow: "East Valley", imagePosition: "50% 48%",
+    tagline: "Connected neighborhoods, urban activity, parks, and central East Valley access.",
+    introduction: "Tempe is a compact East Valley city with established neighborhoods, university-area activity, downtown and lakefront districts, employment centers, and convenient regional connections. The experience changes noticeably between north, central, and south Tempe.",
+    lifestyle: "Tempe Town Lake, downtown events, arts, sports, restaurants, neighborhood parks, and Arizona State University contribute to an active setting. South Tempe offers a different residential pattern from the denser areas near downtown and the university.",
+    housing: "Buyers can compare mid-century and later single-family neighborhoods, condominiums, townhomes, infill projects, and newer attached housing. Property condition, parking, association structure, and proximity to active districts require address-specific review.",
+    highlights: ["Downtown and Tempe Town Lake", "ASU and north Tempe", "South Tempe neighborhoods"],
+    parks: "Tempe maintains more than 50 neighborhood and community parks, including Kiwanis Park, Tempe Beach Park, and Tempe Sports Complex. Tempe Town Lake and city paths add water and trail-oriented recreation.",
+    shopping: "Everyday retail is distributed across the city, with larger destinations around Tempe Marketplace, Arizona Mills, downtown, and nearby East Valley corridors.",
+    restaurants: "Dining ranges from Mill Avenue and downtown destinations to neighborhood restaurants throughout central and south Tempe, with additional options in neighboring cities.",
+    newConstruction: "New housing is generally infill or attached development rather than large outer-edge subdivisions. Availability, association costs, parking, construction timing, and nearby projects should be verified.",
+    location: "Tempe connects to Loops 101 and 202, US 60, Interstate 10, light rail, streetcar, and major surface streets. Event schedules and university traffic can change travel patterns.",
+    faqs: [
+      { question: "How should I divide a Tempe home search?", answer: "Compare north, central, and south Tempe around regular routes, desired housing type, activity level, and access to the places you use most." },
+      { question: "Are attached homes common in Tempe?", answer: "Condominiums and townhomes are available in several areas. Review association finances, fees, maintenance responsibilities, rental rules, parking, and insurance for each property." },
+      { question: "What should I consider near ASU or downtown?", answer: "Consider parking, events, noise patterns, future development, association rules, and your preferred distance from activity at different times of day." },
+    ],
+    officialSources: [
+      { label: "City of Tempe parks", url: "https://www.tempe.gov/government/community-services/parks" },
+      { label: "City of Tempe recreation services", url: "https://www.tempe.gov/government/community-services/recreation-services" },
+    ],
+  },
+  {
     name: "Chandler", slug: "chandler", eyebrow: "East Valley", imagePosition: "50% 50%",
     tagline: "Established neighborhoods, growing employment centers, and East Valley access.",
     introduction: "Chandler combines an active downtown, established residential areas, master-planned communities, and major employment corridors. Buyers can compare a wide range of settings within a relatively connected part of the East Valley.",
@@ -211,6 +257,28 @@ export const communityDetails: CommunityDetail[] = [
       { question: "Why should Mesa be divided into smaller search areas?", answer: "Mesa is geographically large. Downtown, west Mesa, southeast Mesa, and far-east Mesa offer different routes, housing patterns, and access to amenities." },
       { question: "Does Mesa offer new construction?", answer: "Yes, particularly in southeast and east Mesa. Active communities, available homes, incentives, and completion dates should be confirmed during the search." },
       { question: "Can I prioritize desert and trail access?", answer: "Yes. Searches can focus on areas near Usery Mountain and the Salt River corridor while accounting for commute routes, terrain, and property characteristics." },
+    ],
+  },
+  {
+    name: "Queen Creek", slug: "queen-creek", eyebrow: "Southeast Valley", imagePosition: "50% 52%",
+    tagline: "Growing neighborhoods, open-space connections, and a distinct Southeast Valley identity.",
+    introduction: "Queen Creek combines established rural and equestrian roots with master-planned neighborhoods, active new construction, expanding services, and access to the San Tan Mountains. Its growth makes future development and exact routes important parts of a home search.",
+    lifestyle: "Town parks, trails, community events, equestrian facilities, local agricultural destinations, and newer commercial areas shape daily life. Settings range from established large-lot areas to amenity-focused subdivisions.",
+    housing: "Options include established single-family homes, newer subdivisions, master-planned communities, larger lots, equestrian-oriented properties, and substantial new-home development. Utility arrangements, roads, fees, and nearby land use can vary by location.",
+    highlights: ["Town Center and Ellsworth corridor", "Mansel Carter Oasis Park area", "San Tan Mountain connections"],
+    parks: "Queen Creek's park system includes Founders' Park, Mansel Carter Oasis Park, Desert Mountain Park, Frontier Family Park, and Horseshoe Park & Equestrian Centre. San Tan Mountain Regional Park lies south of town.",
+    shopping: "Everyday shopping and services continue to expand along Ellsworth Road and other developing corridors, while some neighborhoods have longer drives to particular destinations.",
+    restaurants: "Local restaurants and agricultural destinations are joined by growing dining clusters along the town's commercial corridors, with additional choices in nearby Southeast Valley communities.",
+    newConstruction: "Queen Creek has active new-home development. Compare builder contracts, lot premiums, option costs, association and district obligations, future phases, infrastructure, and realistic completion timing.",
+    location: "Queen Creek is in the Southeast Valley with connections through State Route 24, Ellsworth Road, and routes toward Loops 202 and 60. Rapid development, road projects, and the specific neighborhood can change travel patterns.",
+    faqs: [
+      { question: "Does Queen Creek have new construction?", answer: "Yes. Multiple communities may be active, but phases, available homes, incentives, and completion dates change. Verify current information and register buyer representation before the first builder visit." },
+      { question: "What should I review around future development?", answer: "Review town planning information, adjacent land, road projects, future phases, utilities, district assessments, and the subdivision public report when applicable." },
+      { question: "Are larger-lot or equestrian properties available?", answer: "They are part of the area's housing mix, but zoning, access, utilities, water, structures, animal privileges, and maintenance needs must be verified for each property." },
+    ],
+    officialSources: [
+      { label: "Town of Queen Creek parks", url: "https://www.queencreekaz.gov/community/parks-recreation/queen-creek-parks" },
+      { label: "Town of Queen Creek parks and recreation", url: "https://www.queencreekaz.gov/community/parks-recreation-143" },
     ],
   },
   {

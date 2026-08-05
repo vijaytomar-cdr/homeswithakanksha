@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CommunityTemplate } from "@/components/communities/community-template";
-import { communityDetails, getCommunity } from "@/data/community-details";
+import { communityDetails, communityReviewedDate, getCommunity } from "@/data/community-details";
 import { siteConfig } from "@/data/site";
 import { getCommunityImage } from "@/data/communities";
 
@@ -49,11 +49,23 @@ export default async function CommunityPage({ params }: CommunityPageProps) {
       acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}/communities/${community.slug}#webpage`,
+    url: `${siteConfig.url}/communities/${community.slug}`,
+    name: `${community.name}, AZ Real Estate & Community Guide`,
+    description: community.introduction,
+    dateModified: communityReviewedDate,
+    isPartOf: { "@id": `${siteConfig.url}#website` },
+    about: { "@type": "Place", name: `${community.name}, Arizona` },
+    reviewedBy: { "@id": `${siteConfig.url}/about#akanksha-tomar` },
+  };
 
   return (
     <>
       <CommunityTemplate community={community} />
-      {[breadcrumbSchema, faqSchema].map((schema) => (
+      {[breadcrumbSchema, faqSchema, pageSchema].map((schema) => (
         <script key={schema["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       ))}
     </>

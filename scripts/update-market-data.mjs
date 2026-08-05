@@ -19,10 +19,13 @@ const communities = [
   { city: "Mesa", slug: "mesa", redfinId: 11736 },
   { city: "Peoria", slug: "peoria", redfinId: 14000 },
   { city: "Scottsdale", slug: "scottsdale", redfinId: 16660 },
+  { city: "Paradise Valley", slug: "paradise-valley", redfinId: 13625 },
+  { city: "Tempe", slug: "tempe", redfinId: 18607 },
   { city: "Sun City", slug: "sun-city", redfinId: 25888 },
   { city: "Sun City West", slug: "sun-city-west", redfinId: 25890 },
   { city: "Surprise", slug: "surprise", redfinId: 18267 },
   { city: "El Mirage", slug: "el-mirage", redfinId: 5724 },
+  { city: "Queen Creek", slug: "queen-creek", redfinId: 30786 },
 ];
 
 const targets = new Map(communities.map((item) => [`${item.city}, AZ`, item]));

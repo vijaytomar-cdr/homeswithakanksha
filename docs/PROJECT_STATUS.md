@@ -1,58 +1,86 @@
 # Project status and integration handoff
 
-Last updated: July 2026
+Last updated: August 4, 2026
 
-This file records external dependencies and the next safe implementation step.
-Do not store passwords, API keys, access tokens, subscriber IDs, or other secrets
-in this document. Secrets belong only in the git-ignored `.env.local` file.
+This document records external dependencies and safe next steps. Never place
+passwords, API keys, tokens, subscriber IDs, or private account details here.
+Use `.env.local` locally and protected Netlify environment variables in
+production.
 
-## Point 1 — ARMLS / Flexmls IDX
+## Live platform
 
-Status: **Parked — waiting for Spark Platform developer access**
+- Production hosting: Netlify
+- Canonical domain: `https://homeswithakanksha.com`
+- Repository deployment branch: `main`
+- Contact delivery: Resend to Akanksha's published business email
+- Owner policy: only the project owner pushes repository changes
 
-Completed:
+## ARMLS / Flexmls IDX
 
-- Akanksha has an active ARMLS/Flexmls subscriber account.
-- The website domain is `https://homeswithakanksha.com`.
-- ARMLS website approval is reported complete.
-- Brokerage approval is reported complete.
-- The Spark API developer registration form has been submitted.
-- Flexmls/Spark is recorded as the intended provider in `.env.local`.
-- The application already has a provider-neutral IDX adapter and demo search UI.
-- Live mode remains disabled with `IDX_LIVE_ENABLED=false`.
+Status: **Waiting for ARMLS to issue feed credentials and requirements**
 
-Do not use Akanksha's normal Flexmls password in the application.
+Confirmed:
 
-Resume when the Spark/FBS approval email arrives. Request or locate:
+- Akanksha is an active ARMLS/Flexmls subscriber.
+- ARMLS website approval and brokerage approval were reported complete.
+- The approved website domain is `homeswithakanksha.com`.
+- FBS support confirmed that ARMLS—not the Spark Datamart—will issue the API
+  feed credentials.
+- A provider-neutral search adapter and non-live search experience already exist.
 
-- IDX-role API key
-- Bearer access token, or the authentication method assigned to the key
-- ARMLS data-plan/feed identifiers
-- API endpoint or replication endpoint assigned to the key
-- Required ARMLS attribution, logo, disclaimer, refresh, and retention rules
+Do not use Akanksha's standard Flexmls username or password in this application.
 
-Then:
+When ARMLS replies, obtain and retain the full approval email or agreement,
+including:
 
-1. Add the credentials only to `.env.local` and production host secrets.
-2. Test authentication against a harmless profile/system-info endpoint.
-3. Confirm the returned MLS, agent, office, role, and display permissions.
-4. Implement and validate the Flexmls/Spark provider adapter.
-5. Replace demo listings only after compliance fields and refresh behavior pass.
-6. Keep a last-known-good cache and never expose server credentials to the browser.
+- authentication credentials and API/replication endpoint;
+- feed/data-set identifiers and permitted property classes/statuses;
+- attribution, logo, disclaimer, refresh, retention, and sold-data rules;
+- photo/display permissions and any consumer-registration requirements;
+- test versus production access details and support contact.
 
-## Current independent work
+Then complete these steps:
 
-Status: **Point 2 implemented — validate deployment automation after hosting is connected**
+1. Add credentials only to `.env.local` and protected Netlify variables.
+2. Validate authentication with the least-privileged harmless endpoint.
+3. Confirm returned MLS, member, office, role, fields, and display permissions.
+4. Implement the approved provider adapter and server-side caching.
+5. Verify attribution, freshness, status mapping, photo rules, and required legal
+   copy before enabling live results.
+6. Test search, detail pages, error states, rate limits, and credential rotation.
 
-- `npm run market:update` streams Redfin's official monthly city dataset.
-- Only the 12 supported Greater Phoenix community rows are retained.
-- Region IDs, required fields, reporting periods, and metric ranges are validated.
-- A failed refresh leaves the last verified generated snapshot untouched.
-- The homepage identifies the reporting period, check date, source, and stale state.
-- `.github/workflows/refresh-market-data.yml` checks weekly and can run manually.
-- A successful changed snapshot is committed, which can trigger the production
-  deployment once the repository and hosting provider are connected.
+## Market data automation
 
-The GitHub repository must allow Actions to write repository contents. After the
-site is connected, manually run the workflow once and confirm the resulting
-commit triggers a production deployment.
+Status: **Implemented; production workflow should be monitored**
+
+- `npm run market:update` downloads and validates Redfin's public monthly
+  city-level dataset.
+- Supported Greater Phoenix rows are retained; invalid or incomplete refreshes
+  leave the last verified snapshot untouched.
+- Pages disclose the source, reporting period, methodology, check date, and that
+  the figures are not an ARMLS report.
+- `.github/workflows/refresh-market-data.yml` can run on schedule or manually.
+
+The owner should confirm GitHub Actions has the minimum repository permission
+needed for the workflow and review every automated data change. A successful
+data commit should trigger Netlify's production deployment.
+
+## Search and measurement setup
+
+Code support exists for Google verification, Bing verification, GA4, GTM,
+Google Ads lead conversion, and Meta Pixel. Remaining account-side work:
+
+1. Add verification/measurement IDs as protected Netlify variables.
+2. Redeploy and verify the rendered tags on the canonical domain.
+3. Submit `https://homeswithakanksha.com/sitemap.xml` to Google Search Console
+   and Bing Webmaster Tools.
+4. Test consent behavior and conversion events in provider debug tools.
+5. Do not publish ad campaigns until landing-page events and lead delivery have
+   been tested end to end.
+
+## Business profiles and social accounts
+
+Google Business Profile, review-profile links, booking links, and official social
+profile URLs require account-owner access and final URLs. Add them only after
+ownership is confirmed; do not invent review counts, ratings, testimonials, or
+social handles.

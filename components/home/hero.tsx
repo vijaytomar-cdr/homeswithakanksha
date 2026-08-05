@@ -13,10 +13,10 @@ export function Hero() {
             Whether you&apos;re buying your first home, upgrading, investing, or relocating, I&apos;m here to guide you every step of the way.
           </p>
           <div className="hero-actions">
-            <ButtonLink href="/search">Search Homes <ArrowRight /></ButtonLink>
-            <ButtonLink href="/home-value" variant="outline">Home Valuation</ButtonLink>
+            <ButtonLink href="/search" tracking={{ name: "Search Homes", location: "homepage-hero" }}>Search Homes <ArrowRight /></ButtonLink>
+            <ButtonLink href="/home-value" variant="outline" tracking={{ name: "Home Valuation", location: "homepage-hero" }}>Home Valuation</ButtonLink>
           </div>
-          <ButtonLink href="/contact" variant="light" className="consult-link">Schedule a Consultation <ArrowRight /></ButtonLink>
+          <ButtonLink href="/contact" variant="light" className="consult-link" tracking={{ name: "Schedule a Consultation", location: "homepage-hero" }}>Schedule a Consultation <ArrowRight /></ButtonLink>
         </div>
         <div className="hero-visual">
           <div className="hero-image-frame">

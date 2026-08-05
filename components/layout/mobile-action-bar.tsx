@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Home, Message, Phone, Search } from "@/components/ui/icons";
 import { siteConfig } from "@/data/site";
 import { TrackedContactLink } from "@/components/analytics/tracked-contact-link";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function MobileActionBar() {
   const actions = [
@@ -15,9 +15,9 @@ export function MobileActionBar() {
     <nav className="mobile-actions" aria-label="Quick contact actions">
       {actions.map(({ label, href, icon: Icon }) => (
         label === "Call" || label === "Text" ? (
-          <TrackedContactLink key={label} href={href} method={label === "Call" ? "call" : "text"}><Icon /><span>{label}</span></TrackedContactLink>
+          <TrackedContactLink key={label} href={href} method={label === "Call" ? "call" : "text"} location="mobile-action-bar"><Icon /><span>{label}</span></TrackedContactLink>
         ) : (
-          <Link key={label} href={href}><Icon /><span>{label}</span></Link>
+          <TrackedLink key={label} href={href} event={{ name: "cta_click", params: { cta_name: label, cta_location: "mobile-action-bar", destination: href } }}><Icon /><span>{label}</span></TrackedLink>
         )
       ))}
     </nav>

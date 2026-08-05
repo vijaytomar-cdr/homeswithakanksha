@@ -3,11 +3,15 @@ import { AudienceSection } from "@/components/services/audience-section";
 import { JourneySection } from "@/components/services/journey-section";
 import { ServiceHero } from "@/components/services/service-hero";
 import { sellerPrinciples, sellerSteps } from "@/data/services";
+import { createSocialMetadata } from "@/lib/metadata";
+
+const description = "Thoughtful pricing, presentation, marketing, and negotiation guidance for home sellers across Greater Phoenix.";
 
 export const metadata: Metadata = {
   title: "Sell Your Greater Phoenix Home",
-  description: "Thoughtful pricing, presentation, marketing, and negotiation guidance for home sellers across Greater Phoenix.",
+  description,
   alternates: { canonical: "/sell" },
+  ...createSocialMetadata({ title: "Sell Your Greater Phoenix Home", description, path: "/sell", image: "/images/blog/what-500k-peoria.jpg", imageAlt: "Arizona desert home representing thoughtful home-sale preparation", imageWidth: 1672, imageHeight: 941 }),
 };
 
 export default function SellPage() {
@@ -39,4 +43,3 @@ export default function SellPage() {
     </>
   );
 }
-

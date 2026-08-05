@@ -3,11 +3,15 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { siteConfig } from "@/data/site";
 import type { LeadIntent } from "@/lib/leads/types";
 import { TrackedContactLink } from "@/components/analytics/tracked-contact-link";
+import { createSocialMetadata } from "@/lib/metadata";
+
+const description = "Contact Akanksha Tomar about buying, selling, relocation, investment property, or new construction across Greater Phoenix.";
 
 export const metadata: Metadata = {
   title: "Contact Akanksha Tomar",
-  description: "Contact Akanksha Tomar about buying, selling, relocation, investment property, or new construction across Greater Phoenix.",
+  description,
   alternates: { canonical: "/contact" },
+  ...createSocialMetadata({ title: "Contact Akanksha Tomar", description, path: "/contact", image: "/images/akanksha-arizona-v2.jpg", imageAlt: "Akanksha Tomar, Greater Phoenix REALTOR", imageWidth: 948, imageHeight: 1660 }),
 };
 
 const intentMap: Record<string, LeadIntent> = {
@@ -34,9 +38,9 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
           <h1>Ready for a clear <em>next step?</em></h1>
           <p>Share what you’re considering and where you are in the process. The first conversation is about understanding your goals—not applying pressure.</p>
           <div className="contact-methods">
-            <TrackedContactLink href={`tel:${siteConfig.phoneHref}`} method="call"><span>Call</span><strong>{siteConfig.phoneDisplay}</strong></TrackedContactLink>
-            <TrackedContactLink href={`sms:${siteConfig.phoneHref}`} method="text"><span>Text</span><strong>{siteConfig.phoneDisplay}</strong></TrackedContactLink>
-            <TrackedContactLink href={`mailto:${siteConfig.email}`} method="email"><span>Email</span><strong>{siteConfig.email}</strong></TrackedContactLink>
+            <TrackedContactLink href={`tel:${siteConfig.phoneHref}`} method="call" location="contact-page"><span>Call</span><strong>{siteConfig.phoneDisplay}</strong></TrackedContactLink>
+            <TrackedContactLink href={`sms:${siteConfig.phoneHref}`} method="text" location="contact-page"><span>Text</span><strong>{siteConfig.phoneDisplay}</strong></TrackedContactLink>
+            <TrackedContactLink href={`mailto:${siteConfig.email}`} method="email" location="contact-page"><span>Email</span><strong>{siteConfig.email}</strong></TrackedContactLink>
           </div>
           <div className="contact-credentials" aria-label="Professional information">
             <span>Professional information</span>

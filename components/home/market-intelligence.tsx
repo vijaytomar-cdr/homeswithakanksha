@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { marketDataSource, marketSnapshots } from "@/data/market";
 import { ArrowRight } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function MarketIntelligence() {
   const checkedLabel = new Intl.DateTimeFormat("en-US", {
@@ -35,7 +35,7 @@ export function MarketIntelligence() {
                 <div><dt>Homes sold</dt><dd>{snapshot.homesSold}</dd></div>
               </dl>
               <div className="market-card-links">
-                <Link href={`/communities/${snapshot.slug}`}>Explore {snapshot.city} <ArrowRight /></Link>
+                <TrackedLink href={`/communities/${snapshot.slug}`} event={{ name: "select_content", params: { content_type: "market_snapshot", item_id: snapshot.slug, item_name: snapshot.city, item_location: "homepage-market" } }}>Explore {snapshot.city} <ArrowRight /></TrackedLink>
                 <a href={snapshot.sourceUrl} target="_blank" rel="noreferrer">View source <ArrowRight /></a>
               </div>
             </article>
@@ -44,7 +44,7 @@ export function MarketIntelligence() {
         <p className="data-note">
           Data provided by <a href={marketDataSource.url} target="_blank" rel="noreferrer">Redfin</a>, a national real estate brokerage, for all home types. Figures are rolling three-month city-level calculations based on MLS and/or public-record data and may be revised. Last checked <time dateTime={marketDataSource.checkedAt}>{checkedLabel}</time>. {marketDataSource.freshness === "stale" && "The source is older than expected and is being retained as the last verified snapshot. "}This is not an ARMLS report. <a href={marketDataSource.methodologyUrl} target="_blank" rel="noreferrer">Read the methodology.</a>
         </p>
-        <Link className="market-all-link" href="/market">Compare all 14 communities <ArrowRight /></Link>
+        <TrackedLink className="market-all-link" href="/market" event={{ name: "cta_click", params: { cta_name: "Compare all communities", cta_location: "homepage-market", destination: "/market" } }}>Compare all communities <ArrowRight /></TrackedLink>
       </div>
     </section>
   );

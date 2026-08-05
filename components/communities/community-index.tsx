@@ -11,7 +11,7 @@ export function CommunityIndex() {
         <div className="container">
           <p className="eyebrow eyebrow-light">Explore Greater Phoenix</p>
           <h1>Find the community that fits <em>your next chapter.</em></h1>
-          <p>Compare locations, housing patterns, recreation, everyday conveniences, and new-construction opportunities across fourteen Greater Phoenix communities.</p>
+          <p>Compare locations, housing patterns, recreation, everyday conveniences, and new-construction opportunities across seventeen Greater Phoenix communities.</p>
         </div>
       </section>
       <section className="section communities-index-section">

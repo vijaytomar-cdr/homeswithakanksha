@@ -1,8 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 import type { ContentItem } from "@/data/content-series";
 import { ArrowUpRight, Play } from "@/components/ui/icons";
 import { blogPosts } from "@/data/blog";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function ContentItemCard({ item }: { item: ContentItem }) {
   const post = item.href ? blogPosts.find(({ canonicalPath }) => canonicalPath === item.href) : undefined;
@@ -23,5 +23,5 @@ export function ContentItemCard({ item }: { item: ContentItem }) {
       </div>
     </>
   );
-  return <Link className="resource-item-card" href={item.href!}>{content}</Link>;
+  return <TrackedLink className="resource-item-card" href={item.href!} event={{ name: "select_content", params: { content_type: "resource_guide", item_id: item.href!, item_name: item.title, item_location: "resources-series" } }}>{content}</TrackedLink>;
 }

@@ -17,7 +17,7 @@ export function MeetAkanksha() {
           <p className="meet-lede">Akanksha Tomar is a REALTOR® with eXp Realty | Kumler Group serving buyers and sellers throughout Greater Phoenix.</p>
           <p>Her approach is personal, patient, and responsive—focused on helping you understand your options and make confident decisions without pressure.</p>
           <div className="client-tags">{clientTypes.map((type) => <span key={type}>{type}</span>)}</div>
-          <ButtonLink href="/about" variant="navy">Get to know Akanksha <ArrowRight /></ButtonLink>
+          <ButtonLink href="/about" variant="navy" tracking={{ name: "Get to know Akanksha", location: "homepage-about" }}>Get to know Akanksha <ArrowRight /></ButtonLink>
         </div>
       </div>
     </section>

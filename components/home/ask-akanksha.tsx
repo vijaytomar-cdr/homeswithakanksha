@@ -3,12 +3,16 @@
 import { useState } from "react";
 import { Close, Message } from "@/components/ui/icons";
 import { AskForm } from "@/components/content/ask-form";
+import { trackEvent } from "@/lib/analytics/events";
 
 export function AskAkanksha() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <button className="ask-fab" type="button" onClick={() => setOpen(true)}>
+      <button className="ask-fab" type="button" onClick={() => {
+        trackEvent({ name: "cta_click", params: { cta_name: "Ask Akanksha", cta_location: "floating-action", destination: "ask-panel" } });
+        setOpen(true);
+      }}>
         <span><Message /></span><span><strong>Ask Akanksha</strong><small>About Arizona real estate</small></span>
       </button>
       {open && <div className="panel-backdrop" onMouseDown={() => setOpen(false)} />}

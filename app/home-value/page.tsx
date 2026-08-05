@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { ValuationForm } from "@/components/services/valuation-form";
+import { createSocialMetadata } from "@/lib/metadata";
+
+const description = "Request a personalized conversation about your Greater Phoenix property, selling timeline, and current market position.";
 
 export const metadata: Metadata = {
   title: "Greater Phoenix Home Valuation",
-  description: "Request a personalized conversation about your Greater Phoenix property, selling timeline, and current market position.",
+  description,
   alternates: { canonical: "/home-value" },
+  ...createSocialMetadata({ title: "Greater Phoenix Home Valuation", description, path: "/home-value", image: "/images/blog/arizona-closing-costs.jpg", imageAlt: "Keys, property plans, and a calculator representing an Arizona home-value consultation", imageWidth: 1672, imageHeight: 941 }),
 };
 
 export default function HomeValuePage() {

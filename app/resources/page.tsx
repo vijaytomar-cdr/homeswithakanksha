@@ -5,11 +5,17 @@ import { ContentSeriesCard } from "@/components/content/content-series-card";
 import { ArrowRight } from "@/components/ui/icons";
 import { getContentProvider } from "@/lib/content";
 import { contentItems } from "@/data/content-series";
+import { createSocialMetadata } from "@/lib/metadata";
+import { TrackedDownloadLink } from "@/components/analytics/tracked-download-link";
+import { TrackedLink } from "@/components/analytics/tracked-link";
+
+const description = "Explore Akanksha Tomar’s Greater Phoenix buyer education, relocation guides, community spotlights, market explainers, and local content series.";
 
 export const metadata: Metadata = {
   title: "Greater Phoenix Real Estate Resources",
-  description: "Explore Akanksha Tomar’s Greater Phoenix buyer education, relocation guides, community spotlights, market explainers, and local content series.",
+  description,
   alternates: { canonical: "/resources" },
+  ...createSocialMetadata({ title: "Greater Phoenix Real Estate Resources", description, path: "/resources", image: "/images/blog/moving-to-phoenix.jpg", imageAlt: "Greater Phoenix landscape featured in Akanksha Tomar's real estate resources", imageWidth: 1672, imageHeight: 941 }),
 };
 
 export default async function ResourcesPage() {
@@ -40,8 +46,17 @@ export default async function ResourcesPage() {
           <div className="resource-item-grid">{publishedItems.map((item) => <ContentItemCard item={item} key={item.id} />)}</div>
         </div>
       </section>
+      <section className="section resource-downloads">
+        <div className="container">
+          <div className="resource-heading"><div><p className="eyebrow">Take it with you</p><h2>Two practical planning worksheets.</h2></div><p>Download, open, and print these ungated resources. No email address is required.</p></div>
+          <div className="resource-download-grid">
+            <article><span>01 · Buyer checklist</span><h3>Greater Phoenix Home Buyer Checklist</h3><p>Organize financing, search criteria, property review, contract deadlines, and closing preparation.</p><TrackedDownloadLink href="/downloads/greater-phoenix-home-buyer-checklist.html" fileName="greater-phoenix-home-buyer-checklist.html">Download the checklist</TrackedDownloadLink></article>
+            <article><span>02 · Relocation worksheet</span><h3>Moving to Greater Phoenix Planning Guide</h3><p>Build a community scorecard around routes, housing, daily needs, total cost, setting, and timing.</p><TrackedDownloadLink href="/downloads/moving-to-greater-phoenix-planning-guide.html" fileName="moving-to-greater-phoenix-planning-guide.html">Download the guide</TrackedDownloadLink></article>
+          </div>
+        </div>
+      </section>
       <section className="resource-engine-note">
-        <div className="container"><div><p className="eyebrow eyebrow-light">Publishing foundation</p><h2>Local today. CMS-ready tomorrow.</h2></div><p>Content currently comes from a typed local provider. A Sanity adapter can replace it later without rewriting cards, series pages, SEO routes, or publishing states.</p></div>
+        <div className="container"><div><p className="eyebrow eyebrow-light">Make it property-specific</p><h2>Still deciding what applies to you?</h2></div><div><p>Guides can organize the research, but the strongest next step is a conversation about your timing, property, budget, and priorities.</p><TrackedLink className="button button-gold" href="/contact" event={{ name: "cta_click", params: { cta_name: "Ask Akanksha", cta_location: "resources-footer", destination: "/contact" } }}>Ask Akanksha <ArrowRight /></TrackedLink></div></div>
       </section>
     </>
   );

@@ -5,11 +5,11 @@
     "sourceDataUrl": "https://redfin-public-data.s3.us-west-2.amazonaws.com/redfin_data_center/housing_market/monthly/all_cities.csv",
     "methodologyUrl": "https://www.redfin.com/news/data-center/methodology/",
     "sourceLastUpdated": "2026-07-03",
-    "checkedAt": "2026-08-03T19:57:17.676Z",
+    "checkedAt": "2026-08-05T00:32:14.312Z",
     "reportingPeriod": "3 months ending June 2026",
     "reportingPeriodISO": "2026-06",
     "freshness": "current",
-    "ageDays": 33,
+    "ageDays": 35,
     "maxDataAgeDays": 62
   },
   "markets": [
@@ -144,6 +144,32 @@
       "medianDaysOnMarket": 68
     },
     {
+      "city": "Paradise Valley",
+      "slug": "paradise-valley",
+      "redfinId": 13625,
+      "sourceLastUpdated": "2026-07-03",
+      "frequency": "Rolling 3 Months",
+      "periodBegin": "2026-04-01",
+      "periodEnd": "2026-06-30",
+      "homesSold": 82,
+      "medianSalePrice": 4197716,
+      "medianSalePriceChange": 0.54,
+      "medianDaysOnMarket": 103
+    },
+    {
+      "city": "Tempe",
+      "slug": "tempe",
+      "redfinId": 18607,
+      "sourceLastUpdated": "2026-07-03",
+      "frequency": "Rolling 3 Months",
+      "periodBegin": "2026-04-01",
+      "periodEnd": "2026-06-30",
+      "homesSold": 435,
+      "medianSalePrice": 479739,
+      "medianSalePriceChange": -4.04,
+      "medianDaysOnMarket": 50
+    },
+    {
       "city": "Sun City",
       "slug": "sun-city",
       "redfinId": 25888,
@@ -194,6 +220,19 @@
       "medianSalePrice": 349810,
       "medianSalePriceChange": -3.1,
       "medianDaysOnMarket": 43
+    },
+    {
+      "city": "Queen Creek",
+      "slug": "queen-creek",
+      "redfinId": 30786,
+      "sourceLastUpdated": "2026-07-03",
+      "frequency": "Rolling 3 Months",
+      "periodBegin": "2026-04-01",
+      "periodEnd": "2026-06-30",
+      "homesSold": 460,
+      "medianSalePrice": 614406,
+      "medianSalePriceChange": -1.69,
+      "medianDaysOnMarket": 71
     }
   ]
 }

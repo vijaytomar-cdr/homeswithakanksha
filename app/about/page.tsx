@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { AboutPage } from "@/components/about/about-page";
-import { siteConfig } from "@/data/site";
+import { aboutPageSchema, serializeJsonLd } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "About Akanksha Tomar | Greater Phoenix REALTOR®",
@@ -16,23 +16,12 @@ export const metadata: Metadata = {
 };
 
 export default function AboutRoute() {
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    name: siteConfig.name,
-    jobTitle: siteConfig.title,
-    worksFor: { "@type": "Organization", name: siteConfig.brokerage },
-    url: `${siteConfig.url}/about`,
-    image: `${siteConfig.url}/images/akanksha-navy-v2.jpg`,
-    areaServed: "Greater Phoenix, Arizona",
-  };
-
   return (
     <>
       <AboutPage />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(aboutPageSchema) }}
       />
     </>
   );

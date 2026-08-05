@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Homes with Akanksha
 
-## Getting Started
+Production website for Akanksha Tomar, REALTOR®, serving buyers and sellers
+across Greater Phoenix. The application uses Next.js App Router, TypeScript,
+Tailwind-era utility/design tokens, server-side lead delivery, and static SEO
+content backed by structured data.
 
-First, run the development server:
+## Local development
+
+Requirements: Node.js 20+ and npm.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local
+npm run dev -- --port 4000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:4000`. Secrets belong in `.env.local`; never commit that
+file. Before handing off a change, run:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Useful scripts
 
-## Learn More
+- `npm run dev` — local Next.js development server.
+- `npm run lint` — ESLint and static checks.
+- `npm run build` — production compilation and route generation.
+- `npm run market:update` — validates and refreshes the public Redfin city-level
+  market snapshot while retaining the last verified data if the refresh fails.
 
-To learn more about Next.js, take a look at the following resources:
+## Production deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Netlify deploys the `main` branch from GitHub. Add production values in Netlify
+under **Project configuration → Environment variables**, then trigger a fresh
+production deploy. Required email-delivery variables are documented in
+`.env.example`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The canonical domain is `https://homeswithakanksha.com`; `www` redirects to the
+apex domain. Keep both domain records and Netlify TLS status healthy before
+launching campaigns.
 
-## Deploy on Vercel
+## External integrations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Lead email:** Resend is active through the server-only lead API.
+- **Analytics:** GA4, Google Tag Manager, Google Ads, and Meta Pixel load only
+  when their environment IDs exist and the visitor grants the relevant consent.
+- **Search verification:** Google and Bing verification tokens are deploy-time
+  environment variables.
+- **Market data:** public, source-attributed city-level context is separate from
+  IDX and is not represented as ARMLS data.
+- **IDX:** the provider-neutral UI remains in non-live mode until ARMLS issues
+  approved feed credentials and display/compliance requirements.
+- **CRM:** lead delivery is adapter-based so an approved CRM can be connected
+  later without exposing credentials in the browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `docs/PROJECT_STATUS.md` for the current handoff checklist.
+
+## Release ownership
+
+Repository pushes are performed by the project owner. Automated assistants and
+local contributors must leave changes uncommitted/unpushed for owner review
+unless the owner explicitly authorizes a different action.

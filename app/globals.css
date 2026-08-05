@@ -740,10 +740,17 @@ main { overflow: hidden; }
 .resource-item-copy > span { display: block; min-height: 58px; color: var(--muted); font-size: 9px; line-height: 1.7; }
 .resource-item-copy > strong { display: flex; align-items: center; gap: 7px; border-top: 1px solid var(--line); margin-top: 15px; padding-top: 12px; color: #8b6634; font-size: 7px; letter-spacing: .09em; text-transform: uppercase; }
 .resource-item-copy > strong svg { width: 13px; }
+.resource-downloads { background: var(--cream); }
+.resource-download-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.resource-download-grid article { border-top: 3px solid var(--gold); padding: 34px; background: #fff; }
+.resource-download-grid article > span { color: #946d38; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.resource-download-grid h3 { margin: 25px 0 14px; color: var(--navy); font-family: var(--font-display), serif; font-size: 34px; font-weight: 500; line-height: 1.05; }
+.resource-download-grid p { min-height: 58px; color: var(--muted); font-size: 11px; line-height: 1.75; }
+.resource-download-grid .button { margin-top: 18px; }
 .resource-engine-note { padding: 80px 0; background: var(--navy); color: #fff; }
 .resource-engine-note > div { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 8vw; }
 .resource-engine-note h2 { margin: 0; font-family: var(--font-display), serif; font-size: 49px; font-weight: 500; line-height: 1; }
-.resource-engine-note > div > p { margin: 0; color: #9eb0ba; font-size: 11px; line-height: 1.8; }
+.resource-engine-note > div > div:last-child > p { margin: 0 0 22px; color: #9eb0ba; font-size: 11px; line-height: 1.8; }
 .series-hero { padding: 170px 0 90px; background: var(--navy); color: #fff; }
 .series-hero-gold { background: linear-gradient(130deg, var(--navy) 50%, #6d512e); }
 .series-hero-sand { background: linear-gradient(130deg, var(--navy) 52%, #74644f); }
@@ -993,7 +1000,7 @@ main { overflow: hidden; }
   .resources-hero h1 { font-size: 56px; }
   .resources-hero > div > div { align-items: stretch; flex-direction: column; }
   .resource-heading, .resource-engine-note > div, .series-about > div { grid-template-columns: 1fr; align-items: start; gap: 25px; }
-  .series-grid, .resource-item-grid { grid-template-columns: 1fr; }
+  .series-grid, .resource-item-grid, .resource-download-grid { grid-template-columns: 1fr; }
   .series-card { min-height: 310px; }
   .resource-item-copy h3, .resource-item-copy > span { min-height: auto; }
   .series-hero { padding: 145px 0 70px; }

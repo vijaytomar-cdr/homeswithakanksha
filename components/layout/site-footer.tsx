@@ -2,6 +2,8 @@ import Link from "next/link";
 import { allCommunities } from "@/data/communities";
 import { navigation, siteConfig } from "@/data/site";
 import { ArrowUpRight } from "@/components/ui/icons";
+import { TrackedContactLink } from "@/components/analytics/tracked-contact-link";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function SiteFooter() {
   return (
@@ -11,18 +13,18 @@ export function SiteFooter() {
           <p className="eyebrow eyebrow-light">Let&apos;s talk Arizona</p>
           <h2>Ready for a clear next step?</h2>
           <p>Start with a relaxed conversation about your goals, questions, and timing.</p>
-          <Link className="footer-contact" href="/contact">
+          <TrackedLink className="footer-contact" href="/contact" event={{ name: "cta_click", params: { cta_name: "Schedule a consultation", cta_location: "footer", destination: "/contact" } }}>
             Schedule a consultation <ArrowUpRight />
-          </Link>
+          </TrackedLink>
         </div>
         <div className="footer-links">
           <div><h3>Navigate</h3>{navigation.slice(1).map((item) => <Link key={item.label} href={item.href}>{item.label}</Link>)}</div>
           <div className="footer-community-links"><h3>Communities</h3>{allCommunities.map((item) => <Link key={item.slug} href={`/communities/${item.slug}`}>{item.name}</Link>)}</div>
           <div>
             <h3>Connect</h3>
-            <a href={`tel:${siteConfig.phoneHref}`}>{siteConfig.phoneDisplay}</a>
-            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-            <Link href="/contact">Contact Akanksha</Link>
+            <TrackedContactLink href={`tel:${siteConfig.phoneHref}`} method="call" location="footer">{siteConfig.phoneDisplay}</TrackedContactLink>
+            <TrackedContactLink href={`mailto:${siteConfig.email}`} method="email" location="footer">{siteConfig.email}</TrackedContactLink>
+            <TrackedLink href="/contact" event={{ name: "cta_click", params: { cta_name: "Contact Akanksha", cta_location: "footer", destination: "/contact" } }}>Contact Akanksha</TrackedLink>
           </div>
         </div>
       </div>

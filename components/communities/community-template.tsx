@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { CommunityDetail } from "@/data/community-details";
+import { communityDetails, communityReviewedDate, type CommunityDetail } from "@/data/community-details";
 import { communityImageCredits, getCommunityImage } from "@/data/communities";
 import { allMarketSnapshots, marketDataSource } from "@/data/market";
 import { ArrowRight, Home, MapPin, Search } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CommunityHero } from "./community-hero";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function CommunityTemplate({ community }: { community: CommunityDetail }) {
   const imageCredit = communityImageCredits[community.slug];
@@ -15,6 +16,16 @@ export function CommunityTemplate({ community }: { community: CommunityDetail })
     { number: "02", title: "Shopping & essentials", body: community.shopping },
     { number: "03", title: "Restaurants & dining", body: community.restaurants },
   ];
+  const reviewedLabel = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "America/Phoenix",
+  }).format(new Date(`${communityReviewedDate}T12:00:00-07:00`));
+  const relatedCommunities = [
+    ...communityDetails.filter(({ eyebrow, slug }) => eyebrow === community.eyebrow && slug !== community.slug),
+    ...communityDetails.filter(({ eyebrow, slug }) => eyebrow !== community.eyebrow && slug !== community.slug),
+  ].slice(0, 3);
 
   return (
     <>
@@ -29,6 +40,7 @@ export function CommunityTemplate({ community }: { community: CommunityDetail })
           <div>
             <p className="community-lede">{community.introduction}</p>
             <p>{community.lifestyle}</p>
+            <p className="housing-note">Community guide reviewed <time dateTime={communityReviewedDate}>{reviewedLabel}</time>. Verify property-specific and time-sensitive details through current authoritative sources.</p>
           </div>
         </div>
       </section>
@@ -125,6 +137,25 @@ export function CommunityTemplate({ community }: { community: CommunityDetail })
         <div className="container community-faq-grid">
           <div><p className="eyebrow">Common questions</p><h2>Planning a move to {community.name}?</h2><p>Start with clear, property-specific questions and verify important details through authoritative sources.</p></div>
           <div>{community.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div>
+        </div>
+      </section>
+
+      <section className="section community-local" aria-labelledby="related-community-guides">
+        <div className="container">
+          <SectionHeading eyebrow="Keep comparing" title="Explore related community guides." description="Use the same route, housing, cost, and lifestyle criteria across several locations before narrowing the search." />
+          <div className="community-local-grid">
+            {relatedCommunities.map((related, index) => (
+              <article key={related.slug}>
+                <span>0{index + 1}</span>
+                <h3 id={index === 0 ? "related-community-guides" : undefined}>{related.name}</h3>
+                <p>{related.tagline}</p>
+                <TrackedLink href={`/communities/${related.slug}`} event={{ name: "select_content", params: { content_type: "related_community", item_id: related.slug, item_name: related.name, item_location: `${community.slug}-guide` } }}>Explore {related.name} <ArrowRight /></TrackedLink>
+              </article>
+            ))}
+          </div>
+          {community.officialSources && (
+            <p className="data-note">Official orientation sources: {community.officialSources.map((source, index) => <span key={source.url}>{index > 0 && " · "}<a href={source.url} target="_blank" rel="noreferrer">{source.label}</a></span>)}</p>
+          )}
         </div>
       </section>
 

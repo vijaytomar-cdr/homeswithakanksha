@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContactForm } from "@/components/contact/contact-form";
 import { allCommunities } from "@/data/communities";
 import type { RawSearchParams } from "@/lib/idx";
+import { TrackedContactLink } from "@/components/analytics/tracked-contact-link";
 
 export const metadata: Metadata = {
   title: "Search Greater Phoenix Homes",
@@ -57,7 +58,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         </div>
       </section>
       <section className="idx-disclosure">
-        <div className="container"><h2>Prefer to talk through it?</h2><p>Call or text Akanksha at <a href="tel:+12179791262">(217) 979-1262</a>. Property availability changes quickly and will be confirmed from the appropriate current source before it is presented as available.</p></div>
+        <div className="container"><h2>Prefer to talk through it?</h2><p>Call or text Akanksha at <TrackedContactLink href="tel:+12179791262" method="call" location="search-page">(217) 979-1262</TrackedContactLink>. Property availability changes quickly and will be confirmed from the appropriate current source before it is presented as available.</p></div>
       </section>
     </>
   );

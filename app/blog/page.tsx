@@ -23,7 +23,7 @@ export default function BlogPage() {
           <p className="eyebrow eyebrow-light">Arizona real estate insights</p>
           <h1>Useful local guidance for <em>confident decisions.</em></h1>
           <p>Explore buyer education, relocation planning, community comparisons, and new-construction questions—without hype or pressure.</p>
-          <span>Nine practical guides, reviewed against current primary and authoritative sources.</span>
+          <span>{blogPosts.length} practical guides, reviewed against current primary and authoritative sources.</span>
         </div>
       </section>
       <section className="section blog-featured">

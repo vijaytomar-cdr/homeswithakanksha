@@ -3,11 +3,15 @@ import { AudienceSection } from "@/components/services/audience-section";
 import { JourneySection } from "@/components/services/journey-section";
 import { ServiceHero } from "@/components/services/service-hero";
 import { buyerSteps, buyerTypes } from "@/data/services";
+import { createSocialMetadata } from "@/lib/metadata";
+
+const description = "A clear, patient home-buying process for first-time buyers, relocation clients, investors, and more across Greater Phoenix.";
 
 export const metadata: Metadata = {
   title: "Buy a Home in Greater Phoenix",
-  description: "A clear, patient home-buying process for first-time buyers, relocation clients, investors, and more across Greater Phoenix.",
+  description,
   alternates: { canonical: "/buy" },
+  ...createSocialMetadata({ title: "Buy a Home in Greater Phoenix", description, path: "/buy", image: "/images/blog/first-home-arizona.jpg", imageAlt: "Arizona home buyers reviewing property information outside a desert home", imageWidth: 1672, imageHeight: 941 }),
 };
 
 export default function BuyPage() {
@@ -41,4 +45,3 @@ export default function BuyPage() {
     </>
   );
 }
-

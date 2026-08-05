@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { navigation } from "@/data/site";
 import { Close, Menu } from "@/components/ui/icons";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export function SiteHeader() {
             <Link key={item.label} href={item.href}>{item.label}</Link>
           ))}
         </nav>
-        <Link className="header-cta" href="/home-value">Home Valuation</Link>
+        <TrackedLink className="header-cta" href="/home-value" event={{ name: "cta_click", params: { cta_name: "Home Valuation", cta_location: "desktop-header", destination: "/home-value" } }}>Home Valuation</TrackedLink>
         <button
           className="menu-button"
           type="button"
@@ -38,12 +39,11 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link className="button button-gold" href="/home-value" onClick={() => setOpen(false)}>
+          <TrackedLink className="button button-gold" href="/home-value" onClick={() => setOpen(false)} event={{ name: "cta_click", params: { cta_name: "Home Valuation", cta_location: "mobile-menu", destination: "/home-value" } }}>
             Home Valuation
-          </Link>
+          </TrackedLink>
         </nav>
       )}
     </header>
   );
 }
-

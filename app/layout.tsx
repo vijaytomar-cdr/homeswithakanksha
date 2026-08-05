@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { MobileActionBar } from "@/components/layout/mobile-action-bar";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { realEstateAgentSchema } from "@/lib/schema";
+import { serializeJsonLd, siteSchemaGraph } from "@/lib/schema";
 import { siteConfig } from "@/data/site";
 import { AnalyticsManager } from "@/components/analytics/analytics-manager";
 import "./globals.css";
@@ -15,7 +15,12 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.brokerage,
   category: "Real estate",
-  verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
   openGraph: {
@@ -39,7 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteFooter />
         <MobileActionBar />
         <AnalyticsManager />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentSchema).replace(/</g, "\\u003c") }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteSchemaGraph) }} />
       </body>
     </html>
   );

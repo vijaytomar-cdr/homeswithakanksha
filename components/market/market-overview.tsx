@@ -8,7 +8,7 @@ export function MarketOverview() {
       <header className="market-page-hero">
         <div className="container">
           <p className="eyebrow eyebrow-light">Greater Phoenix market data</p>
-          <h1>One clear view across 14 local communities.</h1>
+          <h1>One clear view across {allMarketSnapshots.length} local communities.</h1>
           <p>Compare recent city-level sale prices, activity, and market time before exploring the details that matter for your move.</p>
         </div>
       </header>

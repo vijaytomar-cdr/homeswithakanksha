@@ -43,6 +43,22 @@ const shared = {
 const blogPostDrafts = [
   {
     ...shared,
+    slug: "tempe-paradise-valley-queen-creek-comparison",
+    publishDate: "2026-08-04",
+    readingTime: "8 min read",
+    featuredImage: "/images/blog/tempe-paradise-valley-queen-creek.jpg",
+    title: "Tempe, Paradise Valley, or Queen Creek? Three Different Ways to Live in Greater Phoenix",
+    excerpt: "A ranking-free framework for comparing three distinct Greater Phoenix locations by routes, housing, setting, total cost, and growth patterns.",
+    category: "Communities",
+    series: "Community Comparison",
+    imagePosition: "50% 54%",
+    seoTitle: "Tempe vs Paradise Valley vs Queen Creek AZ",
+    seoDescription: "Compare Tempe, Paradise Valley, and Queen Creek by location, housing, lifestyle setting, development, and property-specific priorities.",
+    canonicalPath: "/blog/tempe-paradise-valley-queen-creek-comparison",
+    sections: [],
+  },
+  {
+    ...shared,
     slug: "best-neighborhoods-in-surprise-az",
     featuredImage: "/images/blog/surprise-neighborhoods.jpg",
     title: "Best Neighborhoods in Surprise, AZ",
@@ -209,7 +225,7 @@ export const blogPosts: BlogPost[] = blogPostDrafts.map((post) => ({
   ...post,
   ...fullArticleContent[post.slug],
   status: "published",
-  reviewedDate: "2026-07-27",
+  reviewedDate: post.publishDate,
 }));
 
 export const blogCategories = ["All", "Buying", "Relocation", "Communities", "New Construction", "Market Education"] as const;

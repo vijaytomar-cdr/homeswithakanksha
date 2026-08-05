@@ -65,7 +65,7 @@ export const reviews = [
 ];
 
 export const socialContent = [
-  { platform: "Community guide", series: "Neighborhood Spotlight", title: "A closer look at life in Peoria", image: "/images/communities/peoria.jpg", imageAlt: "Lake Pleasant landscape near Peoria, Arizona", href: "/communities/peoria" },
+  { platform: "New community comparison", series: "Published August 4, 2026", title: "Tempe, Paradise Valley, or Queen Creek?", image: "/images/blog/tempe-paradise-valley-queen-creek.jpg", imageAlt: "Greater Phoenix desert landscape illustrating Tempe, Paradise Valley, and Queen Creek", href: "/blog/tempe-paradise-valley-queen-creek-comparison" },
   { platform: "Relocation guide", series: "Moving to Arizona", title: "Three things to plan before you relocate", image: "/images/blog/moving-to-phoenix.jpg", imageAlt: "Greater Phoenix landscape featured in the relocation guide", href: "/blog/moving-to-phoenix" },
   { platform: "Market update", series: "Greater Phoenix Data", title: "Compare the latest city-level market snapshot", image: "/images/communities/phoenix.jpg", imageAlt: "Phoenix skyline representing the Greater Phoenix market overview", href: "/market" },
   { platform: "Buyer guide", series: "New Construction Watch", title: "Questions to ask at the builder sales office", image: "/images/blog/arizona-new-construction.jpg", imageAlt: "New home construction featured in the Arizona buyer guide", href: "/blog/buying-new-construction-arizona" },
