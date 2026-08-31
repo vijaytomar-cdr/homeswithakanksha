@@ -5,11 +5,11 @@
     "sourceDataUrl": "https://redfin-public-data.s3.us-west-2.amazonaws.com/redfin_data_center/housing_market/monthly/all_cities.csv",
     "methodologyUrl": "https://www.redfin.com/news/data-center/methodology/",
     "sourceLastUpdated": "2026-08-03",
-    "checkedAt": "2026-08-24T18:59:18.094Z",
+    "checkedAt": "2026-08-31T22:51:48.713Z",
     "reportingPeriod": "3 months ending July 2026",
     "reportingPeriodISO": "2026-07",
     "freshness": "current",
-    "ageDays": 23,
+    "ageDays": 30,
     "maxDataAgeDays": 62
   },
   "markets": [
